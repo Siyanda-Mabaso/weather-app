@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Header.module.css'
-import sun from '../assets/200.png'
-import icon from '../assets/100.png'
+import sun from '../../assets/200.png'
+import icon from '../../assets/100.png'
 
 export const Header = () => {
   return (
