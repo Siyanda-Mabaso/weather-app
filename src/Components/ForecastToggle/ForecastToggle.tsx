@@ -5,7 +5,7 @@ export const ForecastToggle = () => {
   return (
     <div className={styles.toggleContainer}>
 
-        <button className={'${styles.toggleButton} $ {styles.active}'}>
+        <button className={styles.activeButton}>
             Hourly
         </button>
 
@@ -16,3 +16,4 @@ export const ForecastToggle = () => {
     </div>
   )
 }
+

@@ -1,0 +1,36 @@
+.toggleContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 600px;
+  margin: 30px auto;
+}
+
+.toggle_Btn {
+  width: 150px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4a4a4a;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.activeButton {
+  width: 150px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #4a90e2;
+  border: 1px solid #4a90e2;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.toggleButton:hover {
+  background-color: #f0f6ff;
+  border-color: #4a90e2;
+}
