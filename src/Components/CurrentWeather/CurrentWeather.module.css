@@ -1,0 +1,75 @@
+.weatherCard{
+    width: 600px;
+    /* max-width: 600px; */
+    margin: 20px auto;
+    padding: 30px;
+    text-align: center;
+    color: beige;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background: #4a90e2;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0,15);
+}
+.location h2 {
+    margin:5px 0 20px;
+    font-size: 28px;
+    color:#161511;
+}
+.location p {
+    margin: 0;
+    font-size: 16px;
+    color: #dddddd;
+}
+.mainWeather{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+.mainWeather h1{
+    margin:0px ;
+    font-size: 42px;
+}
+.mainWeather p {
+    margin: 0;
+    font-size: 16px;
+
+}
+.weatherIcon{
+    font-size: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.temp h1 {
+    margin: 0;
+    font-size: 42px;
+}
+.temp p {
+    margin: 0;
+    font-size: 16px;
+}
+.weatherDetails{
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin: 25px;
+} 
+.details{
+    text-align: center;
+}
+.details span {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+
+}
+.details p{
+    font-size: 14px;
+    margin: 0 0 5px; 
+
+}
+.details strong{
+    font-size: 16px;
+}

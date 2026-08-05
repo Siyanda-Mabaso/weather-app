@@ -11,23 +11,28 @@ export const CurrentWeather = () => {
         </div>
 
         <div className={styles.mainWeather}>
-            <div className={styles.weatherIcon} >☼</div>
-            <div>
+            <div className={styles.weatherIcon} >☀️</div>
+
+            <div className={styles.temp}>
                 <h1>24°C</h1>
                 <p>Sunny</p>
             </div>
         </div>
 
         <div className={styles.weatherDetails}>
-            <span>◙</span>
+
+            <div className={styles.details}>
+            <span>💦</span>
             <p>Humidity</p>
             <strong>60%</strong>
-        </div>
+            </div>
+        
 
-        <div>
-            <span>Ó</span>
+            <div className={styles.details}>
+            <span>💨</span>
             <p>Wind</p>
             <strong>14 km/h</strong>
+        </div>
         </div>
 
     </div>
