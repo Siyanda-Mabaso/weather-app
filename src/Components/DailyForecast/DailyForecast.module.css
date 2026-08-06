@@ -1,0 +1,53 @@
+.dailySection {
+  width: 600px;
+  margin: 30px auto;
+}
+
+.dailySection h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333333;
+  text-align: left;
+}
+
+.dailyContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dailyCard {
+  width: 110px;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dailyCard p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555555;
+}
+
+.dailyCard span {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 30px;
+}
+
+.dailyCard strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 17px;
+  color: #222222;
+}
+
+.dailyCard h6 {
+  font-size: 12px;
+  color: #777777;
+}
