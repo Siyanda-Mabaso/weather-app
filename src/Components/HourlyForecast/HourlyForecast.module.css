@@ -1,0 +1,45 @@
+.hourlySection {
+  width: 600px;
+  margin: 30px auto;
+}
+
+.hourlySection h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #333333;
+  text-align: left;
+}
+
+.hourlyContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hourlyCard {
+  width: 100px;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.hourlyCard p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #555555;
+}
+
+.hourlyCard span {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 30px;
+}
+
+.hourlyCard strong {
+  font-size: 16px;
+  color: #222222;
+}
