@@ -1,0 +1,24 @@
+.saveContainer {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.saveButton {
+  width: 180px;
+  height: 45px;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #4a90e2;
+  border: 1px solid #4a90e2;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  background-color: #4a90e2;
+  color: #ffffff;
+}

@@ -6,6 +6,7 @@ import { CurrentWeather } from "./Components/CurrentWeather/CurrentWeather";
 import { ForecastToggle } from "./Components/ForecastToggle/ForecastToggle";
 import { HourlyForecast } from "./Components/HourlyForecast/HourlyForecast";
 import { DailyForecast } from "./Components/DailyForecast/DailyForecast";
+import { SaveLocation } from "./Components/SaveLocation/SaveLocation";
 
 const App = () => {
   const [forecastType, setForecastType] = useState("hourly");
@@ -24,6 +25,7 @@ const App = () => {
       {forecastType === "hourly" && <HourlyForecast />}
 
       {forecastType === "daily" && <DailyForecast />}
+    <SaveLocation/>
     </>
   );
 };
