@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './HourlyForecast.module.css'
 export const HourlyForecast = () => {
   return (

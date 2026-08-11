@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './Header.module.css'
 import sun from '../../assets/300.png'
 import icon from '../../assets/100.png'

@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './CurrentWeather.module.css'
 
 export const CurrentWeather = () => {
