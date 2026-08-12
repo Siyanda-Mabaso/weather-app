@@ -1,12 +1,19 @@
 import { useState } from 'react'
 import styles from './Settings.module.css'
+type SettingsProps={
+  theme: string;
+  setTheme: (theme: string) => void;
+}
 
-export const Settings = () => {
-
+export const Settings = ({
+  theme,
+  setTheme,
+}: SettingsProps) => {
+// Temp unit state
     const [temperatureUnit, setTemperatureUnit] = useState(
         localStorage.getItem('temperatureUnit') || 'celsius'
     )
-
+// temp function
     const handleTemperatureChange=(
         event: React.ChangeEvent<HTMLSelectElement>
     ) =>{
@@ -16,9 +23,9 @@ export const Settings = () => {
         localStorage.setItem('temperature',unit)
     }
     // theme state
-     const [theme, setTheme] = useState(
-        localStorage.getItem('theme') || 'light'
-    )
+    //  const [theme, setTheme] = useState(
+    //     localStorage.getItem('theme') || 'light'
+    // )
     // theme function
      const handleThemeChange=(
         event: React.ChangeEvent<HTMLSelectElement>
@@ -33,18 +40,22 @@ export const Settings = () => {
   return (
     <section className={styles.settingsContainer}>
       <h2>Settings</h2>
-
+{/* Temperature Unit */}
       <div className={styles.settingItem}>
         <label htmlFor="temperatureUnit">
           Temperature Unit
         </label>
 
-        <select id="temperatureUnit" className={styles.select}>
+        <select 
+        id="temperatureUnit"
+         className={styles.select}
+         value={temperatureUnit}
+         onChange={handleTemperatureChange}>
           <option value="celsius">Celsius (°C)</option>
           <option value="fahrenheit">Fahrenheit (°F)</option>
         </select>
       </div>
-
+{/* Theme */}
       <div className={styles.settingItem}>
         <label htmlFor="theme">
           Theme
