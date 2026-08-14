@@ -29,7 +29,7 @@ localStorage.getItem("temperatureUnit") || "celsius"
 
 return (
 <div className={theme === "dark" ? "dark" : "light"}>
-{/* <Header /> */}
+<Header />
 
 <SearchBar
 location={location}
