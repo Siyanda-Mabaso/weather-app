@@ -3,6 +3,7 @@ import styles from "./CurrentWeather.module.css";
 type CurrentWeatherProps = {
   location: string;
   temperatureUnit: string;
+  
 };
 
 export const CurrentWeather = ({

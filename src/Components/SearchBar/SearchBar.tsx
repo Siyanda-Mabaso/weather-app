@@ -3,22 +3,22 @@ import styles from "./SearchBar.module.css";
 
 type SearchBarProps = {
   location: string;
-  setLocation: (location: string) => void;
+  handleSearch: (searchValue: string) => void;
 };
 
 export const SearchBar = ({
   location,
-  setLocation,
+  handleSearch,
 }: SearchBarProps) => {
   const [searchValue, setSearchValue] = useState(location);
 
-  const handleSearch = () => {
-    if (searchValue === "") {
-      return;
-    }
+  // const handleSearch = () => {
+  //   if (searchValue === "") {
+  //     return;
+  //   }
 
-    setLocation(searchValue);
-  };
+  //   setLocation(searchValue);
+  // };
 
   return (
     <div className={styles.searchContainer}>
@@ -29,7 +29,7 @@ export const SearchBar = ({
         placeholder="Search Location..."
       />
 
-      <button onClick={handleSearch}>
+      <button onClick={() => handleSearch(searchValue)}>
         🔍 Search
       </button>
     </div>
