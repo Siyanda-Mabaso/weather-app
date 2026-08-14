@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styles from './SaveLocation.module.css'
 
 type SaveLocationProps={
@@ -6,6 +6,7 @@ type SaveLocationProps={
 }
 
 export const SaveLocation = ({location}: SaveLocationProps) => {
+
   const saveLocation=() =>{
     localStorage.setItem('savedLocation',location)
     alert ('${location} has been saved!')

@@ -1,18 +1,23 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import styles from './Settings.module.css'
 type SettingsProps={
   theme: string;
   setTheme: (theme: string) => void;
+  temperatureUnit: string;
+  setTemperatureUnit: (unit: string) => void;
 }
 
 export const Settings = ({
   theme,
   setTheme,
+  temperatureUnit,
+  setTemperatureUnit
 }: SettingsProps) => {
-// Temp unit state
-    const [temperatureUnit, setTemperatureUnit] = useState(
-        localStorage.getItem('temperatureUnit') || 'celsius'
-    )
+
+// // Temp unit state
+//     const [temperatureUnit, setTemperatureUnit] = useState(
+//         localStorage.getItem('temperatureUnit') || 'celsius'
+//     )
 // temp function
     const handleTemperatureChange=(
         event: React.ChangeEvent<HTMLSelectElement>
@@ -20,7 +25,7 @@ export const Settings = ({
         const unit = event.target.value;
         
         setTemperatureUnit(unit)
-        localStorage.setItem('temperature',unit)
+        localStorage.setItem('temperatureUnit',unit)
     }
     // theme state
     //  const [theme, setTheme] = useState(

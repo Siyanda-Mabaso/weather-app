@@ -22,16 +22,23 @@ const [theme, setTheme] = useState(
 localStorage.getItem("theme") || "light"
 );
 
+//Temperature Unit
+const [temperatureUnit, setTemperatureUnit] = useState(
+localStorage.getItem("temperatureUnit") || "celsius"
+);
+
 return (
 <div className={theme === "dark" ? "dark" : "light"}>
-<Header />
+{/* <Header /> */}
 
 <SearchBar
 location={location}
 setLocation={setLocation}
 />
 
-<CurrentWeather />
+<CurrentWeather
+  location={location} 
+temperatureUnit={temperatureUnit} />
 
 <ForecastToggle
 forecastType={forecastType}
@@ -46,6 +53,8 @@ setForecastType={setForecastType}
 <Settings
 theme={theme}
 setTheme={setTheme}
+temperatureUnit={temperatureUnit}
+setTemperatureUnit={setTemperatureUnit}
 />
 </div>
 );
