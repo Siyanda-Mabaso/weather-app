@@ -54,3 +54,63 @@ weather-app/
 ├── package.json
 ├── tsconfig.json
 └── vite.config.ts
+
+🚀 Getting Started
+1. Clone the repository
+git clone <your-repository-url>
+
+2. Navigate to the project
+cd weather-app
+
+3. Install dependencies
+npm install
+
+4. Start the development server
+npm run dev
+
+The application will be available at:
+
+http://localhost:5173
+
+📖 How to Use
+Enter a city name in the search bar.
+
+Click Search.
+
+View the current weather conditions.
+
+Use Hourly or Daily to switch between forecasts.
+
+Click Save Location to save a preferred location.
+
+Use Settings to change the temperature unit or theme.
+
+🌡️ Weather Information
+The application displays information such as:
+
+Temperature
+
+Humidity
+
+Wind speed
+
+Weather conditions
+
+Weather icons
+
+Hourly forecast
+
+Daily forecast
+
+🎨 Settings
+The settings section allows users to customise the application.
+
+Temperature Unit
+Celsius (°C)
+
+Other supported units, if configured
+
+Theme
+Light
+
+Dark
