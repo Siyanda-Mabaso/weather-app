@@ -1,49 +1,84 @@
-import styles from './DailyForecast.module.css'
+import styles from "./DailyForecast.module.css";
 
+type DailyForecastProps = {
+  weather: any;
+  temperatureUnit: string;
+};
 
-export const DailyForecast = () => {
+export const DailyForecast = ({
+  weather,
+  temperatureUnit,
+}: DailyForecastProps) => {
+
+  if (!weather || !weather.daily) {
+    return null;
+  }
+
+  const days = weather.daily.time;
+  const temperatures = weather.daily.temperature_2m_max;
+  const weatherCodes = weather.daily.weather_code;
+
+  const getWeatherDescription = (code: number) => {
+    if (code === 0) return "Sunny";
+    if (code <= 3) return "Partly Cloudy";
+    if (code <= 48) return "Foggy";
+    if (code <= 67) return "Rainy";
+    if (code <= 77) return "Snowy";
+    if (code <= 82) return "Rainy";
+    if (code <= 99) return "Thunderstorm";
+
+    return "Unknown";
+  };
+
+  const getWeatherIcon = (code: number) => {
+    if (code === 0) return "☀️";
+    if (code <= 3) return "🌤️";
+    if (code <= 48) return "🌫️";
+    if (code <= 67) return "🌧️";
+    if (code <= 77) return "❄️";
+    if (code <= 82) return "🌦️";
+    if (code <= 99) return "⛈️";
+
+    return "🌤️";
+  };
+
   return (
-     <section className={styles.dailySection}>
+    <section className={styles.dailySection}>
       <h2>Daily Forecast</h2>
 
       <div className={styles.dailyContainer}>
 
-        <div className={styles.dailyCard}>
-          <p>Monday</p>
-          <span>☀️</span>
-          <strong>24°C</strong>
-         <h6>Sunny</h6>
-        </div>
+        {days.map((day: string, index: number) => {
 
-        <div className={styles.dailyCard}>
-          <p>Tuesday</p>
-          <span>🌧️</span>
-          <strong>20°C</strong>
-          <h6>Rainy</h6>
-        </div>
+          const date = new Date(day);
 
-        <div className={styles.dailyCard}>
-          <p>Wednesday</p>
-          <span>⛅</span>
-          <strong>22°C</strong>
-          <h6>Partly Cloudy</h6>
-        </div>
+          const dayName = date.toLocaleDateString("en-US", {
+            weekday: "long",
+          });
 
-        <div className={styles.dailyCard}>
-          <p>Thursday</p>
-          <span>☀️</span>
-          <strong>25°C</strong>
-          <h6>Sunny</h6>
-        </div>
+          return (
+            <div className={styles.dailyCard} key={day}>
 
-        <div className={styles.dailyCard}>
-          <p>Friday</p>
-          <span>🌤️</span>
-          <strong>23°C</strong>
-          <h6>Mostly Sunny</h6>
-        </div>
+              <p>{dayName}</p>
+
+              <span>
+                {getWeatherIcon(weatherCodes[index])}
+              </span>
+
+              <strong>
+                {Math.round(temperatures[index])}
+                {temperatureUnit === "celsius" ? "°C" : "°F"}
+              </strong>
+
+              <h6>
+                {getWeatherDescription(weatherCodes[index])}
+              </h6>
+
+            </div>
+          );
+        })}
 
       </div>
     </section>
-  )
-}
+  );
+};

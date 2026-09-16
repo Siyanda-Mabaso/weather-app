@@ -7,84 +7,101 @@ import { HourlyForecast } from "./Components/HourlyForecast/HourlyForecast";
 import { DailyForecast } from "./Components/DailyForecast/DailyForecast";
 import { SaveLocation } from "./Components/SaveLocation/SaveLocation";
 import { Settings } from "./Components/Settings/Settings";
-import { searchLocation,getWeather } from "./API/weather";
+
+import { searchLocation, getWeather } from "./API/weather";
 
 const App = () => {
-// Forecast type
-const [forecastType, setForecastType] = useState("hourly");
+  const [forecastType, setForecastType] = useState("hourly");
 
-// Location
-const [location, setLocation] = useState(
-localStorage.getItem("savedLocation") || "PMB"
-);
+  const [location, setLocation] = useState(
+    localStorage.getItem("savedLocation") || "PMB"
+  );
 
-// Theme
-const [theme, setTheme] = useState(
-localStorage.getItem("theme") || "light"
-);
+  const [temperatureUnit, setTemperatureUnit] = useState(
+    localStorage.getItem("temperatureUnit") || "celsius"
+  );
 
-//Temperature Unit
-const [temperatureUnit, setTemperatureUnit] = useState(
-localStorage.getItem("temperatureUnit") || "celsius"
-);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "light"
+  );
 
-const [weatherData, setWeatherData] = useState<any>(null);
+  const [weather, setWeather] = useState<any>(null);
 
-const handleSearch = async (searchValue: string) => {
-if (searchValue === "") {
-  return;
-} 
+  const [loading, setLoading] = useState(false);
 
+  const handleSearch = async (searchValue: string) => {
+    if (searchValue === "") {
+      return;
+    }
 
-const locationData = await searchLocation(searchValue);
+    setLoading(true);
 
-if(!locationData) {
-  alert("Location not found");
-  return;
-}
+    const locationData = await searchLocation(searchValue);
 
-const weatherData = await getWeather(
-  locationData.latitude,
-  locationData.longitude,
-  temperatureUnit
-);
+    if (!locationData) {
+      setLoading(false);
+      return;
+    }
 
-console.log("Weather Data:", weatherData);
+    const weatherData = await getWeather(
+      locationData.latitude,
+      locationData.longitude,
+      temperatureUnit
+    );
 
-setWeatherData(weatherData);
+    setLocation(locationData.name);
+    setWeather(weatherData);
 
-setLocation(locationData.name);
-}
-return (
-<div className={theme === "dark" ? "dark" : "light"}>
-<Header />
+    setLoading(false);
+  };
 
-<SearchBar
-location={location}
-handleSearch={handleSearch}
-/>
+  return (
+    <div className={theme === "dark" ? "dark" : "light"}>
+      <Header />
 
-<CurrentWeather
-  location={location} 
-temperatureUnit={temperatureUnit} />
+      <SearchBar
+        location={location}
+        handleSearch={handleSearch}
+      />
 
-<ForecastToggle
-forecastType={forecastType}
-setForecastType={setForecastType}
-/>
-{forecastType === "hourly" && <HourlyForecast />}
+      <CurrentWeather
+        location={location}
+        temperatureUnit={temperatureUnit}
+        weather={weather}
+        loading={loading}
+      />
 
-{forecastType === "daily" && <DailyForecast />}
+      <ForecastToggle
+        forecastType={forecastType}
+        setForecastType={setForecastType}
+      />
 
-<SaveLocation location={location} />
+      {forecastType === "hourly" && (
+        <HourlyForecast
+          weather={weather}
+          temperatureUnit={temperatureUnit}
+        />
+      )}
 
-<Settings
-theme={theme}
-setTheme={setTheme}
-temperatureUnit={temperatureUnit}
-setTemperatureUnit={setTemperatureUnit}
-/>
-</div>
-);
+      {forecastType === "daily" && (
+        <DailyForecast
+          weather={weather}
+          temperatureUnit={temperatureUnit}
+        />
+      )}
+
+      <SaveLocation
+        location={location}
+      />
+
+      <Settings
+        theme={theme}
+        setTheme={setTheme}
+        temperatureUnit={temperatureUnit}
+        setTemperatureUnit={setTemperatureUnit}
+      />
+    </div>
+  );
 };
+
 export default App;
